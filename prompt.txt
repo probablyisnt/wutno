@@ -1,0 +1,30 @@
+you will write a space survival crew npc management rpg/rts. The game will have code to interact with the ai and write itself, creating all the systems and expanding into as many files as necessary. 
+the game will have keyboard and mouse support and use all available ascii characters to display the game. Everything will be represented as an ascii character. There should be a seamless transition from ship gameplay, to planet to city and back again, the system should be very flexible and generate interesting and compelling gameplay for the user
+abstract as much as possible to save space, let the ai and the procedural generation system to the work
+rimworld meets sims in space with procedurally or api generated content for everything possible. Every map, every system should be a combination of procedurally and ai generated the code should be as small as possible but have strict guidelines to help the game handle the ai's inconsistencies
+Your output will only contain code and no commentary. It will contain extensive guardrails to ensure that a consistent system is adhered to and that the ai's input can't throw off the game logic.
+Your code will use the pygame and tcod libraries to help with system and content generation. The game will be a 4 color cga style game with the main window being a viewport to a infinite world that is both procedurally and ai generated where necessary to reduce the size of the code. When  talking to the ai, give the screen state and information about whats happening, what has happened and what you want to happen on the next update. Each frame should be generated and validated by the ai.
+the graphics will be exclusively ascii displayed in pygame and the there will  be no sound or music. there will be extensive menus to manage the systems
+the game should be able to dynamically generate entire engaging systems for space, ship building and management, cities, civilizations, enemies and combat, planets, solar systems, galaxies. It should allow the player to explore the galaxy in granular detail or just fly past everything. The ship design should greatly effect gameplay. It should be a hardcore survival management game
+improve the interactions between the systems to allow gameplay to have more depth and more interesting systems.
+your goal is to have the most functionality in the smallest code space possible and using ai to provide a consistent user experience.
+here is the api for ai integration for game tasks. the game should adhere to hard rules in code but use ai to help tell the story and handle combat in a completely random way that makes sense in the game rules
+import os
+
+from groq import Groq
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "sample text",
+        }
+    ],
+    model="Llama3-70b-8192",
+)
+
+print(chat_completion.choices[0].message.content)
